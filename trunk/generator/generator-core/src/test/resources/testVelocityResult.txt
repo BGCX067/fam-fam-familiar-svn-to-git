@@ -1,0 +1,8 @@
+Type : type1
+Type : type2
+Speed : speed
+Width : width
+Height : height
+NbCreatures : nbCreatures
+ParamColorCreation : paramColorCreation
+StrategyColor : strategyColor

@@ -1,0 +1,32 @@
+M1 Informatique 
+Ligne de Produit - Projet
+
+Kraria Yoann, Mouline Ludovic, Nesmes Jérémy, Palmieri Anthony
+
+Prérequis : 
+-----------------------
+  Maven 3
+  Java 1.6
+
+RECUPERER LE PROJET
+-----------------------
+
+Dans un terminal : 
+    svn checkout http://fam-fam-familiar.googlecode.com/svn/trunk/generator KRARIA_MOULINE_NESMES_PALMIERI
+    
+COMPILATION
+-----------------------
+Se placer dans KRARIA_MOULINE_NESMES_PALMIERI
+Taper : mvn clean install
+(Peut prendre un certains temps à cause des dépendances. C'est l'heure du café!)
+
+EXECUTION
+-----------------------
+Se placer dans KRARIA_MOULINE_NESMES_PALMIERI
+Taper : java -jar generator-bundle/target/generator-bundle-0.0.1-SNAPSHOT-jar-with-dependencies.jar
+
+EXECUTION D'UN SIMULATEUR
+-----------------------
+Se placer dans le dossier avec le pom.
+Si vous n'avez pas compilé : mvn clean install.
+Pour executer : java -jar target/XXX-simulator-0.0.1-jar-with-dependencies.jar 

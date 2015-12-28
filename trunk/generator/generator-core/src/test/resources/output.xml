@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<simulatorDescriptor>
+    <speed>2</speed>
+    <width>200</width>
+    <height>123</height>
+    <nbCreatures>23</nbCreatures>
+    <paramColorCreation>a</paramColorCreation>
+    <list>type1</list>
+    <list>type44</list>
+</simulatorDescriptor>

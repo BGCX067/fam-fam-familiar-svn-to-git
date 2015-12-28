@@ -1,0 +1,8 @@
+simulateur = FM(Simulateur: Speed Actionable Visualizer [PluginLoader];
+Actionable: (Cell|Creature);
+Creature: Dimension (Stupid|Bouncing|Smart)+;
+Dimension: (SmallWorld|MediumWorld|BigWorld);
+Visualizer: [ColorStrategy];
+ColorStrategy: (ColorCube|ColorUnique);
+Creature <-> ColorStrategy;
+PluginLoader -> Creature;)

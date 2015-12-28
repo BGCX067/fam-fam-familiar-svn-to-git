@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<simulatorDescriptor>
+    <name>name</name>
+    <nameClass>name.class</nameClass>
+    <nbCreatures>12</nbCreatures>
+    <nbColor>3</nbColor>
+    <width>200</width>
+    <height>100</height>
+</simulatorDescriptor>

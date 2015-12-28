@@ -1,0 +1,98 @@
+package fr.unice.deptinfo.bestiole.simulator;
+
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.util.Collection;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+import color.ColorCube;
+
+import simulator.creatures.CreatureSimulator;
+import visualizer.creatures.CreatureInspector;
+import visualizer.creatures.CreatureVisualizer;
+
+import creature.abstractfactory.CreatureAbstractFactory;
+import creatures.$name;
+import creatures.ICreature;
+
+/**
+ * Hello world!
+ *
+ */
+public class App extends JFrame
+{
+	private CreatureInspector inspector;
+	private CreatureVisualizer visualizer;
+	private CreatureSimulator simulator;
+	
+	private CreatureAbstractFactory factory;
+	
+	public App() {
+		double myMaxSpeed = 5;
+    	CreatureAbstractFactory.init(myMaxSpeed);
+    	this.factory = CreatureAbstractFactory.getInstance();
+    	
+    	setName("Creature Simulator Simple Version");
+		setLayout(new BorderLayout());
+		
+		JPanel buttons = new JPanel();
+		
+		JButton start = new JButton("Start/Pause simulation");
+		start.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				synchronized(simulator) {
+					if (simulator.isRunning()) {
+						simulator.stop();
+					} else {
+						simulator.start();
+					}
+				}
+			}
+		});
+		buttons.add(start);
+		
+		add(buttons, BorderLayout.SOUTH);
+		
+		simulator = new CreatureSimulator(new Dimension($width, $height));
+		addCreatures();
+		inspector = new CreatureInspector();
+		inspector.setFocusableWindowState(false);
+		visualizer = new CreatureVisualizer(simulator);
+		visualizer.setDebug(false);
+		visualizer.setPreferredSize(simulator.getSize());
+		
+		add(visualizer, BorderLayout.CENTER);
+
+	    pack();
+
+		addWindowListener(new WindowAdapter() {
+			public void windowClosing(WindowEvent evt) {
+				exit(evt);
+			}
+		});
+	}
+	
+	private void addCreatures() {
+		Collection<? extends ICreature> listCreatures = this.factory.createCreatures(this.simulator, $nbCreatures, new ColorCube($nbColor), $nameClass);
+		this.simulator.clearCreatures();
+		this.simulator.addAllCreatures(listCreatures);
+	}
+
+	private void exit(WindowEvent evt) {
+		System.exit(0);
+	}
+	
+    public static void main( String[] args )
+    {
+    	App app = new App();
+    	app.setVisible(true);
+    	
+    }
+}

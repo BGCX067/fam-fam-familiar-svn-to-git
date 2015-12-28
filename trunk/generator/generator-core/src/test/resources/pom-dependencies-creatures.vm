@@ -1,0 +1,30 @@
+<dependency>
+    	<groupId>fr.unice.deptinfo</groupId>
+    	<artifactId>simulator-creatures</artifactId>
+    	<version>0.0.1</version>
+    </dependency>
+    <dependency>
+    	<groupId>fr.unice.deptinfo</groupId>
+    	<artifactId>visualizer-creatures</artifactId>
+    	<version>0.0.1</version>
+    </dependency>
+    <dependency>
+    	<groupId>fr.unice.deptinfo</groupId>
+    	<artifactId>creatures-abstractfactory</artifactId>
+    	<version>0.0.1</version>
+    </dependency>
+    <dependency>
+    	<groupId>fr.unice.deptinfo</groupId>
+    	
+    	<artifactId>$simulator.ColorArtefactID</artifactId>
+   
+    	<version>0.0.1</version>
+    </dependency>
+        
+    #foreach( $typeCreature in $simulator.List )
+		<dependency>
+    		<groupId>fr.unice.deptinfo</groupId>
+    		<artifactId>${simulator.getArtefactID( $typeCreature )}</artifactId>
+    		<version>0.0.1</version>
+    	</dependency>
+	#end

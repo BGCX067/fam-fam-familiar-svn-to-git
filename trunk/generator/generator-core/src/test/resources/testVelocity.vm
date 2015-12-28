@@ -1,0 +1,9 @@
+#foreach( $type in $simulator.List )
+Type : $type
+#end
+Speed : $simulator.Speed
+Width : $simulator.Width
+Height : $simulator.Height
+NbCreatures : $simulator.NbCreatures
+ParamColorCreation : $simulator.ParamColorCreation
+StrategyColor : $simulator.StrategyColor

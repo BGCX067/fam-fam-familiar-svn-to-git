@@ -1,0 +1,120 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>fr.unice.deptinfo</groupId>
+  <artifactId>$name</artifactId>
+  <version>0.0.1</version>
+  <packaging>jar</packaging>
+
+  <name>bestiole.simulator</name>
+  <url>http://maven.apache.org</url>
+
+<repositories>
+		<repository>
+          	<id>releases</id>
+          	<name>I3S Maven Releases Repository</name>
+          	 <url>http://nyx.unice.fr:9007/nexus/content/repositories/i3s-public</url>	
+		</repository>
+	</repositories>  
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+     <maven.compiler.source>1.6</maven.compiler.source>
+    <maven.compiler.target>1.6</maven.compiler.target>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+    	<groupId>fr.unice.deptinfo</groupId>
+    	<artifactId>simulator-creatures</artifactId>
+    	<version>0.0.1</version>
+    </dependency>
+    <dependency>
+    	<groupId>fr.unice.deptinfo</groupId>
+    	<artifactId>visualizer-creatures</artifactId>
+    	<version>0.0.1</version>
+    </dependency>
+    <dependency>
+    	<groupId>fr.unice.deptinfo</groupId>
+    	<artifactId>creatures-abstractfactory</artifactId>
+    	<version>0.0.1</version>
+    </dependency>
+    <dependency>
+    	<groupId>fr.unice.deptinfo</groupId>
+    	<artifactId>colorstrategy-$classColorStrategy</artifactId>
+    	<version>0.0.1</version>
+    </dependency>
+    <dependency>
+    	<groupId>fr.unice.deptinfo</groupId>
+    	<artifactId>creature-$name</artifactId>
+    	<version>0.0.1</version>
+    </dependency>
+  </dependencies>
+  
+  <profiles>
+      
+            <!-- Run the Generator GUI. -->
+    <profile>
+      <id>run</id>
+      <build>
+        <defaultGoal>compile</defaultGoal>
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>exec</goal>
+                </goals>
+                <phase>compile</phase>
+              </execution>
+            </executions>
+            <configuration>
+               <!-- argLine>-Xms1000m -Xmx1000m -XX:MaxPermSize=2048m</argLine--> 
+              <executable>java</executable>
+              <arguments>
+                <argument>-classpath</argument>
+                <!-- automatically creates the classpath using all project dependencies, 
+                     also adding the project build directory -->
+                <classpath />
+                #set( $App = ".App" )
+                <argument>$packageName$App</argument>
+              </arguments>   
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+      
+     <profile>
+      <id>graph</id>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>mvnplugins.fusesource.org</id>
+          <url>http://mvnplugins.fusesource.org/repo/release</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+        </pluginRepository>
+      </pluginRepositories>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.fusesource.mvnplugins</groupId>
+            <artifactId>maven-graph-plugin</artifactId>
+            <version>1.4</version>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+      
+  </profiles>
+</project>

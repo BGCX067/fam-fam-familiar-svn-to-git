@@ -1,0 +1,20 @@
+<dependency>
+    	<groupId>fr.unice.deptinfo</groupId>
+    	<artifactId>simulator-core</artifactId>
+    	<version>0.0.1</version>
+    </dependency>
+    <dependency>
+    	<groupId>fr.unice.deptinfo</groupId>
+    	<artifactId>cell-entity</artifactId>
+    	<version>0.0.1</version>
+    </dependency>
+    <dependency>
+    	<groupId>fr.unice.deptinfo</groupId>
+    	<artifactId>cell-visualizer</artifactId>
+    	<version>0.0.1</version>
+    </dependency>
+    <dependency>
+    	<groupId>fr.unice.deptinfo</groupId>
+    	<artifactId>cell-simulator</artifactId>
+    	<version>0.0.1</version>
+    </dependency>
